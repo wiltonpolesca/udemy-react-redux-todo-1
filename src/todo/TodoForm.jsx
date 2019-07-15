@@ -1,19 +1,24 @@
 import React from 'react';
 
 import PageHeader from '../components/PageHeader';
+import Grid from '../components/Grid';
+import IconButton from '../components/IconButton';
+
 
 export default props => (
     <React.Fragment>
         <PageHeader name="Add" small="new task" />
-    <div role="form" className="todoForm">
-        <div className="col-xs-12 col-sm-9 col-md-10">
-            <input id="description" type="text" className="form-control" placeholder="Add a task"/>
+        <div role="form" className="todoForm">
+            <Grid cols="12 9 10">
+                <input id="description" type="text"
+                    className="form-control"
+                    placeholder="Add a task"
+                    value={props.description} 
+                    onChange={props.handleChange} />
+            </Grid>
+            <Grid cols="12 2 2">
+                <IconButton style='primary' icon='plus' onClick={props.handleAdd} />
+            </Grid>
         </div>
-        <div className="col-xs-12 col-sm-3 col-sm-2">
-            <buton className="btn btn-primary">
-                <i className="fa fa-plus"></i>
-            </buton>
-        </div>
-    </div>
     </React.Fragment>
 )
